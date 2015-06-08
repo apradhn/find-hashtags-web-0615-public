@@ -1,3 +1,13 @@
 def get_hashtags(tweet)
-  #code here
+  find_hashtag(tweet)
+end
+
+def find_hashtag(tweet)
+  hashtags = []
+  tweet.split(" ").each do |word|
+    if word =~ /\A#+[a-zA-Z]+/ && !(word =~ /\A#+[a-zA-Z]+#/)
+      hashtags << word.delete("#") 
+    end
+  end
+  hashtags
 end
